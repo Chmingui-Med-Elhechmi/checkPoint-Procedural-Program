@@ -1,0 +1,40 @@
+FUNCTION dot_prodect_F(n:INTEGER, var T1,T2: ARRAY_OF FLOAT)) : FLOAT
+VAR
+    i:INTEGER;
+    result:FLOAT;
+BEGIN
+    result:=0.0;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        FOR j FROM 0 TO n-1 STEP 1  DO
+            result:=result + (T1[i]*T2[j]);
+        END_FOR
+    END_FOR
+    RETURN result ;
+END
+
+ALGORITHM dot_scalar_product
+VAR
+    V1 : ARRAY_OF FLOAT[50];
+    V2 : ARRAY_OF FLOAT[50];
+    n,i : INTEGER;
+    ps:FLOAT :=0.0 ;  
+BEGIN
+    write("enter the size of the vectors: ");
+    read(n);
+
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        FOR j FROM 0 TO n-1 STEP 1  DO
+            read(V1[i]);
+            read(V2[j]);
+        END_FOR
+    END_FOR
+
+    ps:=dot_prodect_F(n,v1,v2);
+
+    IF (ps=0) THEN
+        write("both vectors V1 and V2 are orthogonal")
+    ELSE
+        write("the dot(scalar) product of v1 and v2 equal : ",ps);
+    END_IF
+    
+END
